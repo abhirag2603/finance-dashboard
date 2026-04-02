@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import {
   Select,
   SelectContent,
@@ -8,26 +8,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useTransactionStore } from "@/store/useTransactionStore"
 
 export function RoleSwitcher() {
-  const [role, setRole] = useState("viewer")
+  const { role, setRole } = useTransactionStore()
 
   useEffect(() => {
     const savedRole = localStorage.getItem("role")
     if (savedRole) setRole(savedRole)
   }, [])
 
-  const handleChange = (value: string) => {
-    setRole(value)
-    localStorage.setItem("role", value)
-    window.location.reload() // simple approach
-  }
-
   return (
-    <Select value={role} onValueChange={handleChange}>
+    <Select value={role} onValueChange={setRole}>
       <SelectTrigger className="w-[140px]">
-        <SelectValue placeholder="Select Role" />
+        <SelectValue />
       </SelectTrigger>
+
       <SelectContent>
         <SelectItem value="viewer">Viewer</SelectItem>
         <SelectItem value="admin">Admin</SelectItem>

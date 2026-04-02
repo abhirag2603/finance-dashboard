@@ -11,12 +11,8 @@ import { useEffect, useState } from "react"
 
 export default function Home() {
   const { data } = useTransactionStore()
-  const [role, setRole] = useState("viewer")
+  const { role,setRole } = useTransactionStore()
 
-  useEffect(() => {
-    const savedRole = localStorage.getItem("role") || "viewer"
-    setRole(savedRole)
-  }, [])
 
   return (
     <div className="min-h-screen">

@@ -11,15 +11,21 @@ type Transaction = {
 
 type Store = {
   data: Transaction[]
-  setData: (data: Transaction[]) => void
+  role: string
+  setRole: (role: string) => void
   deleteTransaction: (id: number) => void
   updateTransaction: (id: number, amount: number) => void
+  addTransaction: (t: Transaction) => void
 }
 
 export const useTransactionStore = create<Store>((set) => ({
   data: initialData,
+  role: "viewer",
 
-  setData: (data) => set({ data }),
+  setRole: (role) => {
+    localStorage.setItem("role", role)
+    set({ role })
+  },
 
   deleteTransaction: (id) =>
     set((state) => ({
@@ -31,5 +37,10 @@ export const useTransactionStore = create<Store>((set) => ({
       data: state.data.map((t) =>
         t.id === id ? { ...t, amount } : t
       ),
+    })),
+
+  addTransaction: (t) =>
+    set((state) => ({
+      data: [...state.data, t],
     })),
 }))

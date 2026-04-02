@@ -27,15 +27,12 @@ export function TransactionsTable() {
 
     const [search, setSearch] = useState("")
     const [filter, setFilter] = useState("all")
-    const [role, setRole] = useState("viewer")
+  
 
     const [editingId, setEditingId] = useState<number | null>(null)
     const [editValue, setEditValue] = useState("")
 
-    useEffect(() => {
-        const savedRole = localStorage.getItem("role") || "viewer"
-        setRole(savedRole)
-    }, [])
+const { role, setRole } = useTransactionStore()
 
     const filteredData = useMemo(() => {
         return data

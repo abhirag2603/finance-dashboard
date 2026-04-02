@@ -19,7 +19,8 @@ export function AddTransactionModal({
   open: boolean
   onClose: () => void
 }) {
-  const { data, setData } = useTransactionStore()
+  const { data } = useTransactionStore()
+  const { addTransaction } = useTransactionStore()
 
   const [form, setForm] = useState({
     amount: "",
@@ -36,7 +37,7 @@ export function AddTransactionModal({
       type: form.type as "income" | "expense",
     }
 
-    setData([...data, newTransaction])
+  addTransaction(newTransaction)
     onClose()
   }
 

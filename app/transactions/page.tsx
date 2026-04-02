@@ -12,12 +12,9 @@ import { Button } from "@/components/ui/button"
 export default function TransactionsPage() {
   const { data } = useTransactionStore()
   const [open, setOpen] = useState(false)
-  const [role, setRole] = useState("viewer")
+  const { role,setRole } = useTransactionStore()
 
-useEffect(() => {
-  const savedRole = localStorage.getItem("role") || "viewer"
-  setRole(savedRole)
-}, [])
+
 
   return (
     <div className="min-h-screen">
