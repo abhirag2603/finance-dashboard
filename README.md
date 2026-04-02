@@ -124,3 +124,97 @@ Ensures:
 ```bash
 git clone https://github.com/your-username/finance-dashboard.git
 cd finance-dashboard
+```
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Run development server
+```bash
+npm run dev
+```
+### 4. Open in browser
+```bash
+http://localhost:3000
+```
+## 📁 Project Structure
+
+```bash
+/app
+  page.tsx                # Dashboard
+  /transactions
+    page.tsx             # Transactions page
+
+/components
+  /dashboard             # Core UI components
+  /ui                    # shadcn components
+
+/store
+  useTransactionStore.ts # Zustand store
+
+/lib
+  mockData.ts            # Static data
+  exportUtils.ts         # CSV/JSON export
+
+```
+
+
+  ## ⚡ Development Approach
+
+- Component-driven architecture  
+- Clean state management (Zustand)  
+- Separation of concerns  
+- Scalable UI design  
+
+---
+
+## 🤖 Prompting & Debugging
+
+- Used AI-assisted prompting for:
+  - UI structuring  
+  - Feature planning  
+  - Debugging issues  
+
+- Combined with manual reasoning for:
+  - Correctness  
+  - UX refinement  
+
+---
+
+## 🔗 References
+
+- Next.js Docs → https://nextjs.org/docs  
+- shadcn/ui → https://ui.shadcn.com  
+- Zustand → https://zustand-demo.pmnd.rs  
+- Recharts → https://recharts.org  
+- Tailwind CSS → https://tailwindcss.com  
+
+---
+
+## 🏁 Final Notes
+
+This project demonstrates:
+
+- Real-world frontend architecture  
+- Thoughtful UX design  
+- Modern React ecosystem usage  
+
+---
+
+## 📌 Future Improvements
+
+- Backend integration  
+- Authentication  
+- Persistent database  
+- Advanced analytics  
+
+---
+
+## 👨‍💻 Author
+
+**Abhirag Bakode**
+
+📧 Email: abhirag4169@gmail.com
+
+---
+
