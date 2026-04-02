@@ -4,6 +4,19 @@ A modern, responsive **finance dashboard** built with Next.js, featuring transac
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](./public/screenshots/dashboard.png)
+
+### Transactions
+![Transactions](./public/screenshots/transactions.png)
+
+### Add Transaction Modal
+![Modal](./public/screenshots/modal.png)
+
+---
+
 ## 🚀 Features
 
 ### 📊 Dashboard Overview (`/`)
