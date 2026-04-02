@@ -6,12 +6,18 @@ import { TransactionsTable } from "@/components/dashboard/TransactionsTable"
 import { ExportButton } from "@/components/dashboard/ExportButton"
 import { useTransactionStore } from "@/store/useTransactionStore"
 import { AddTransactionModal } from "@/components/dashboard/AddTransactionModal"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export default function TransactionsPage() {
   const { data } = useTransactionStore()
   const [open, setOpen] = useState(false)
+  const [role, setRole] = useState("viewer")
+
+useEffect(() => {
+  const savedRole = localStorage.getItem("role") || "viewer"
+  setRole(savedRole)
+}, [])
 
   return (
     <div className="min-h-screen">
@@ -35,12 +41,14 @@ export default function TransactionsPage() {
 
           {/* Actions */}
           <div className="flex flex-wrap items-center gap-2">
-            <Button
-              onClick={() => setOpen(true)}
-              className="hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Add Transaction
-            </Button>
+           {role === "admin" && (
+  <Button
+    onClick={() => setOpen(true)}
+    className="hover:scale-[1.02] active:scale-[0.98]"
+  >
+    Add Transaction
+  </Button>
+)}
 
             <ExportButton data={data} />
           </div>
