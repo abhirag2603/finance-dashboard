@@ -69,7 +69,7 @@ A modern, responsive **finance dashboard** built with Next.js, featuring transac
 ## 🧠 State Management
 
 ### 🟢 Zustand (Global State)
-Used for managing transaction data across the app:
+Used for managing transaction data and roles across the app:
 - Centralized store (`/store/useTransactionStore.ts`)
 - Eliminates prop drilling
 - Syncs data between dashboard & transactions page
@@ -90,7 +90,6 @@ Used for managing transaction data across the app:
 
 ### 💾 LocalStorage Usage
 - Theme preference → handled by `next-themes`
-- User role → stored for UI switching
 
 ---
 
